@@ -2,7 +2,6 @@
     "name": "zpqsunny/xclient",
     "description": "简单封装curl操作",
     "require": {
-        "php": "^7.1",
-        "zpqsunny/xclient": "1.0"
+        "php": "^7.1"
     }
 }
