@@ -2,6 +2,19 @@
     "name": "zpqsunny/xclient",
     "description": "简单封装curl操作",
     "require": {
-        "php": "^7.1"
+        "php": ">=7.1",
+        "ext-curl": "*"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "zpq",
+            "homepage": "https://zpq.me"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "http\\": "src/Http/"
+        }
     }
 }
