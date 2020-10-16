@@ -2,6 +2,8 @@
 
 namespace Http;
 
+use Closure;
+
 class XClient
 {
     private $curl;
@@ -17,6 +19,8 @@ class XClient
     public function __construct()
     {
         $this->curl = curl_init();
+
+        $this->setConnectTimeOut(10);
     }
 
     public function setAutoReferer(bool $autoReferer)
