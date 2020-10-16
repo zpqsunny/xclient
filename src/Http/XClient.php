@@ -110,7 +110,7 @@ class XClient
             curl_setopt($this->curl, CURLOPT_HTTPHEADER, $h);
         }
 
-        if (count($this->cookies)) {
+        if (count($this->cookies) > 0) {
 
             $c = [];
             foreach ($this->headers as $key => $value) {
