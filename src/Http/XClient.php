@@ -118,7 +118,7 @@ class XClient
                 $c[] = $key . '=' . $value;
             }
 
-            curl_setopt($this->curl, CURLOPT_HTTPHEADER, implode('; ', $c));
+            curl_setopt($this->curl, CURLOPT_COOKIE, implode('; ', $c));
         }
 
         if (count($this->params) > 0) {
