@@ -12,6 +12,8 @@ class XClient
 
     private $headers = [];
 
+    private $cookies = [];
+
     private $params = [];
 
     private $data = '';
@@ -65,6 +67,12 @@ class XClient
         return $this;
     }
 
+    public function setCookie(string $key, string $value)
+    {
+        $this->cookies[$key] = $value;
+        return $this;
+    }
+
     public function setParams(string $key, string $value)
     {
         $this->params[$key] = $value;
@@ -100,7 +108,17 @@ class XClient
             }
 
             curl_setopt($this->curl, CURLOPT_HTTPHEADER, $h);
+        }
 
+        if (count($this->cookies)) {
+
+            $c = [];
+            foreach ($this->headers as $key => $value) {
+
+                $c[] = $key . '=' . $value;
+            }
+
+            curl_setopt($this->curl, CURLOPT_HTTPHEADER, implode('; ', $c));
         }
 
         if (count($this->params) > 0) {
@@ -170,7 +188,8 @@ class XClient
         curl_close($this->curl);
     }
 
-    public function reset() {
+    public function reset()
+    {
 
         curl_reset($this->curl);
         return $this;
