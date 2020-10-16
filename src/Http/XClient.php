@@ -113,7 +113,7 @@ class XClient
         if (count($this->cookies) > 0) {
 
             $c = [];
-            foreach ($this->headers as $key => $value) {
+            foreach ($this->cookies as $key => $value) {
 
                 $c[] = $key . '=' . $value;
             }
